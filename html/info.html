@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Pak</title>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/info.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <button type="button" class="menu-toggle" id="menu-toggle">Menu</button>
+
+      <!-- SIDE BAR -->
+      <div class="sidebar">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <span class="dot dot--orange"></span><a class="sidebar__link" href="/index.html">Home</a>
+          </li>
+          <li class="sidebar__item">
+            <span class="dot dot--green"></span><a class="sidebar__link" href="/html/work.html">Work</a>
+          </li>
+          <li class="sidebar__item">
+            <span class="dot dot--cyan"></span
+            ><a class="sidebar__link" href="/html/commi.html">Commission</a>
+          </li>
+          <li class="sidebar__item">
+            <span class="dot dot--blue"></span
+            ><a class="sidebar__link" href="/html/wiki.html">Micyclopedia</a>
+          </li>
+          <li class="sidebar__item">
+            <span class="dot dot--navy"></span><a class="sidebar__link" href="/html/blog.html">Blog</a>
+          </li>
+          <li class="sidebar__item">
+            <span class="dot dot--pink"></span><a class="sidebar__link" href="/html/info.html">Info</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main">
+        <button type="button" id="lang-toggle" data-lang="en">EN / KR</button>
+
+        <div class="info-layout">
+          <!-- side table of contents, meant to stay in view while the sections scroll -->
+          <nav class="info-subnav" id="info-subnav" aria-label="Info sections">
+            <ul class="info-subnav__list">
+              <li><a href="#about" data-en="About" data-ko="소개">About</a></li>
+              <li>
+                <a href="#statement" data-en="Artist Statement" data-ko="작가노트"
+                  >Artist Statement</a
+                >
+              </li>
+              <li><a href="#education" data-en="Education" data-ko="교육">Education</a></li>
+              <li>
+                <a href="#solo-exhibitions" data-en="Solo Exhibitions" data-ko="개인전"
+                  >Solo Exhibitions</a
+                >
+              </li>
+              <li>
+                <a href="#group-exhibitions" data-en="Group Exhibitions" data-ko="주요 단체전"
+                  >Group Exhibitions</a
+                >
+              </li>
+              <li>
+                <a href="#residencies" data-en="Residencies" data-ko="주요 레지던시">Residencies</a>
+              </li>
+              <li>
+                <a href="#commissions" data-en="Commissions" data-ko="외주 작업">Commissions</a>
+              </li>
+              <li>
+                <a href="#presentations" data-en="Presentations / Talks" data-ko="주요 프레젠테이션"
+                  >Presentations / Talks</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#project-involvements"
+                  data-en="Project Involvements"
+                  data-ko="참여 프로젝트"
+                  >Project Involvements</a
+                >
+              </li>
+              <li><a href="#awards" data-en="Awards" data-ko="수상">Awards</a></li>
+            </ul>
+          </nav>
+
+          <div class="info-sections" id="info-sections">
+            <section class="info-section" id="about" data-sheet="About">
+              <h2 data-en="About" data-ko="소개">About</h2>
+
+              <div class="info-contact" id="about-contact">
+                <p>Loading…</p>
+              </div>
+
+              <div class="info-bio" id="about-bio">
+                <p>Loading…</p>
+              </div>
+            </section>
+
+            <section class="info-section" id="statement" data-sheet="About">
+              <h2 data-en="Artist Statement" data-ko="작가노트">Artist Statement</h2>
+              <div class="info-statement" id="about-statement"></div>
+            </section>
+
+            <section class="info-section" id="education" data-sheet="Education">
+              <h2 data-en="Education" data-ko="교육">Education</h2>
+              <ul class="cv-list" id="list-education">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="solo-exhibitions" data-sheet="Solo Exhibitions">
+              <h2 data-en="Solo Exhibitions" data-ko="개인전">Solo Exhibitions</h2>
+              <ul class="cv-list" id="list-solo-exhibitions">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="group-exhibitions" data-sheet="Group Exhibitions">
+              <h2 data-en="Selected Group Exhibitions" data-ko="주요 단체전">
+                Selected Group Exhibitions
+              </h2>
+              <ul class="cv-list" id="list-group-exhibitions">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="residencies" data-sheet="Residiencies">
+              <h2 data-en="Selected Residencies" data-ko="주요 레지던시">Selected Residencies</h2>
+              <ul class="cv-list" id="list-residencies">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="commissions" data-sheet="Commissions">
+              <h2 data-en="Commissions" data-ko="외주 작업">Commissions</h2>
+              <ul class="cv-list" id="list-commissions">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="presentations" data-sheet="Presentations">
+              <h2 data-en="Selected Presentations / Talks" data-ko="주요 프레젠테이션">
+                Selected Presentations / Talks
+              </h2>
+              <ul class="cv-list" id="list-presentations">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section
+              class="info-section"
+              id="project-involvements"
+              data-sheet="Project Involvements"
+            >
+              <h2 data-en="Project Involvements" data-ko="참여 프로젝트">Project Involvements</h2>
+              <ul class="cv-list" id="list-project-involvements">
+                <li>Loading…</li>
+              </ul>
+            </section>
+
+            <section class="info-section" id="awards" data-sheet="Awards">
+              <h2 data-en="Award" data-ko="수상">Award</h2>
+              <ul class="cv-list" id="list-awards">
+                <li>Loading…</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+
+    <!--
+      Google Sheets integration.
+      Reads live from the public "Info" spreadsheet — no build step, no API key.
+      Each CV section below is fetched from its own tab via Sheets' CSV export
+      endpoint (works because the sheet is shared as "anyone with the link can view").
+      Update the spreadsheet and reload the page: the content here follows automatically.
+    -->
+    <script src="/js/info.js"></script>
+  </body>
+</html>

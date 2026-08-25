@@ -1,0 +1,9 @@
+:root {
+  --wallpaper-color: var(--dot-blue);
+}
+
+/* WALLPAPER */
+body::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='130'%3E%3Ctext x='0' y='120' font-family='cursive' font-size='80' fill='black' fill-opacity='0.2' transform='rotate(-10 80 80)'%3EMicyclopedia%3C/text%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='150'%3E%3Ctext x='0' y='120' font-family='cursive' font-size='80' fill='black' fill-opacity='0.2' transform='rotate(-4 80 80)'%3EMicyclopedia%3C/text%3E%3C/svg%3E");
+}

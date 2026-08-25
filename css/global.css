@@ -1,0 +1,238 @@
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --side-bar-color: #fbe3f7;
+  --side-bar-text-color: #800080;
+  --dot-orange: #f4a261;
+  --dot-green: #2ecc40;
+  --dot-cyan: #7ee8e0;
+  --dot-blue: #4a90e2;
+  --dot-navy: #1a2a6c;
+  --dot-gray: #555555;
+  --dot-pink: #c0399f;
+  --wallpaper-color: var(--dot-orange);
+
+  /* mobile .menu-toggle pill */
+  --menu-toggle-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.7), inset 0 -3px 5px rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  --menu-toggle-shadow-active:
+    inset 0 3px 5px rgba(0, 0, 0, 0.5), inset 0 -1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================================
+   FONTS
+   unicode-range scopes each face to Hangul only (syllables + jamo
+   + compat jamo), so within the very same element English/numbers/
+   punctuation fall through to the next font in the stack (cursive)
+   glyph-by-glyph — no need to tag elements by language.
+   ============================================================ */
+@font-face {
+  font-family: "SDMyungjo";
+  src: url("/font/SDMyungjo-Regular.woff2") format("woff2");
+  font-weight: normal;
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+@font-face {
+  font-family: "SDMyungjo";
+  src: url("/font/SDMyungjo-Bold.woff2") format("woff2");
+  font-weight: bold;
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: cursive;
+  font-size: 1rem;
+  position: relative;
+}
+
+/* Repeating page-title watermark; each page sets --wallpaper-color
+   and supplies its own mask-image (see e.g. blog.css). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--wallpaper-color);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+
+/* ============================================================
+   PAGE SHELL — .wrapper > .sidebar + .main, present on every page
+   ============================================================ */
+.wrapper {
+  display: flex;
+}
+
+.main {
+  margin: 1rem;
+  flex: 1;
+  max-width: 50vw;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  margin: 0.5rem 0.8rem;
+}
+
+/* ============================================================
+   SIDEBAR — left-hand site nav, draggable to resize/collapse on
+   desktop (see script.js), off-canvas drawer on mobile.
+   ============================================================ */
+.sidebar {
+  width: 10rem;
+  flex-shrink: 0;
+  background-color: var(--side-bar-color);
+  padding: 10px;
+  border-right: 8px solid #cccccc;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+.sidebar__list {
+  list-style: none;
+}
+
+.sidebar__item {
+  margin-bottom: 0.8rem;
+  white-space: nowrap;
+}
+
+.sidebar__link {
+  color: var(--side-bar-text-color);
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.sidebar__link:hover {
+  color: blue;
+}
+
+/* Dragging the sidebar's right edge below this width snaps it shut. */
+.sidebar--collapsed {
+  padding: 0;
+  border-right: none;
+  overflow: hidden;
+}
+
+.sidebar--resizing {
+  border-right-color: #999999;
+}
+
+/* Colored dot next to each sidebar link */
+.dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 1rem;
+}
+
+.dot--orange {
+  background: var(--dot-orange);
+}
+.dot--green {
+  background: var(--dot-green);
+}
+.dot--cyan {
+  background: var(--dot-cyan);
+}
+.dot--blue {
+  background: var(--dot-blue);
+}
+.dot--navy {
+  background: var(--dot-navy);
+}
+.dot--gray {
+  background: var(--dot-gray);
+}
+.dot--pink {
+  background: var(--dot-pink);
+}
+
+/* ============================================================
+   MOBILE MENU BUTTON — hidden on desktop, shown as a fixed pill by
+   the mobile media query below.
+   ============================================================ */
+.menu-toggle {
+  display: none;
+}
+
+/* ============================================================
+   MOBILE — sidebar becomes an off-canvas drawer opened by the Menu
+   button; the main column always takes the full width.
+   ============================================================ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0.6rem;
+    left: 0.6rem;
+    z-index: 20;
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    border-radius: 20rem;
+    background: radial-gradient(ellipse at 35% 25%, #ffffff 0%, var(--side-bar-color) 35%);
+    color: var(--side-bar-text-color);
+    font-family: cursive;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: var(--menu-toggle-shadow);
+    transition: filter 0.15s ease-in-out;
+    cursor: pointer;
+  }
+
+  .menu-toggle:active {
+    box-shadow: var(--menu-toggle-shadow-active);
+    transform: translateY(1px);
+  }
+
+  .wrapper {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 14rem;
+    max-width: 80vw;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  /* leave room so the list doesn't sit under the fixed Menu button */
+  .sidebar__list {
+    margin-top: 2.5rem;
+  }
+
+  .main {
+    max-width: 90%;
+    margin: 0.8rem;
+    padding-top: 2.5rem;
+  }
+}
