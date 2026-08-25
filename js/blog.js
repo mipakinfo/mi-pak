@@ -82,7 +82,7 @@
       })
       .then(parseCsv)
       .then(function (rows) {
-        // header row is Date, Title, Body, Image Path
+        // header row is Date, Author, Title, Body, Image Path
         return rows.slice(1).filter(function (row) {
           return row.some(function (cell) {
             return cell;
@@ -94,10 +94,11 @@
           .map(function (row) {
             return {
               date: row[0] || "",
-              title: row[1] || "",
-              body: row[2] || "",
-              imagePath: row[3] || "",
-              number: entryNumber(row[1] || ""),
+              author: row[1] || "",
+              title: row[2] || "",
+              body: row[3] || "",
+              imagePath: row[4] || "",
+              number: entryNumber(row[2] || ""),
             };
           })
           .sort(function (a, b) {
@@ -271,6 +272,13 @@
         dateEl.className = "blog-entry__date";
         dateEl.textContent = entry.date;
         el.appendChild(dateEl);
+
+        if (entry.author) {
+          var authorEl = document.createElement("p");
+          authorEl.className = "blog-entry__date";
+          authorEl.textContent = entry.author;
+          el.appendChild(authorEl);
+        }
 
         entry.body.split(/\n+/).forEach(function (para) {
           if (!para.trim()) return;
